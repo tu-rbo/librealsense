@@ -395,7 +395,11 @@ namespace realsense_camera
     {
       enableDepthStream();
       enableInfraredStream();
-      enableInfrared2Stream();
+      if(camera_.compare("R200") == 0)
+      {
+          std::cout << camera_ << std::endl;
+        enableInfrared2Stream();
+      }
     }
 
     getCameraOptions();
@@ -740,7 +744,10 @@ namespace realsense_camera
 
       enableDepthStream();
       enableInfraredStream();
-      enableInfrared2Stream();
+      if(camera_.compare("R200") == 0)
+      {
+        enableInfrared2Stream();
+      }
 
       if (rs_is_device_streaming(rs_device_, 0) == 0)
       {
